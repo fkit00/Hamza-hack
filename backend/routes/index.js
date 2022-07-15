@@ -1,5 +1,5 @@
 import express from 'express'
-import { getAll } from '../models/index.js'
+import { getAll, postItem } from '../models/index.js'
 
 
 const app = express()
@@ -15,6 +15,15 @@ let data= res.json({
     payload:all, 
 })
 return data 
+})
+
+router.post('/', async(req,res)=>{
+    let newToDo = await postItem(req.body)
+    let data = res.json({
+        success: true,
+        payload: newToDo
+    })
+    return data
 })
 
 
