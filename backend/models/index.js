@@ -10,7 +10,7 @@ return notesArr
 
 export async function postItem(info){
     const res = await query(`INSERT INTO todo_list (id, item)
-    VALUES ($1, $2);`, [info.id, info.item])
+    VALUES ($1, $2) RETURNING *;`, [info.id, info.item])
     const newItem = res.rows;
     return newItem
 }
