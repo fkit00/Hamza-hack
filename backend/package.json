@@ -10,7 +10,10 @@
     "createTable": "node -r dotenv/config ./db/scripts/createTable.js",
     "populateTable": "node -r dotenv/config ./db/scripts/populateTable.js",
     "dropTable": "node -r dotenv/config ./db/scripts/dropTable.js",
-    "reset": "npm run dropTable && npm run createTable && npm run populateTable"
+    "reset": "npm run dropTable && npm run createTable && npm run populateTable",
+    "start":"node -r dotenv/config ./app.js"
+
+    
   },
   "keywords": [],
   "author": "",
