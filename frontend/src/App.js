@@ -13,9 +13,35 @@ function App() {
       id: todo.length + 1,
       item: text
     } 
+/* 
+    async function postTodo(){
+      let res= await fetch('http://localhost:3001/todo'{
+        method: 'POST',
+        headers:{'Content-Type':"application/json"},
+        body:JSON.stringify(newItem)
+      })
+      let addeditem= await res.json
+      }
+
+ */
+
     console.log(newItem)
     setTodo([...todo, newItem]);
   }
+
+async function fetchTodo(){
+let res= await fetch('http://localhost:3001/todo')
+let data = await res.json()
+console.log(data.payload)
+setTodo(data.payload)
+}
+
+useEffect(()=>{
+
+  fetchTodo()
+
+},[])
+
 
 
   return (
