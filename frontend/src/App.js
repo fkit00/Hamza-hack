@@ -7,9 +7,6 @@ import {useEffect, useState} from "react";
 function App() {
   const [todo, setTodo] = useState([]);
 
-  // useEffect() {
-
-  // }
   
   function handleClick(text) {
     const newItem = {
@@ -25,6 +22,7 @@ function App() {
     <div className="App">
       <h1>The Best Ever Todo List</h1>
       <Input handleClick={handleClick} />
+      <List todo={todo}/>
     </div>
   );
 }
